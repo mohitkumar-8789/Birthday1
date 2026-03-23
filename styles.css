@@ -1,0 +1,256 @@
+:root {
+  --bg-1: #130018;
+  --bg-2: #2b0a3d;
+  --pink: #ff4fa1;
+  --gold: #ffd166;
+  --soft: #ffe3f3;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.22);
+  --text: #fff8fe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, #4a1e6a 0%, transparent 30%),
+    radial-gradient(circle at 80% 10%, #5d1458 0%, transparent 30%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#sparkleCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-1 {
+  top: -100px;
+  left: -70px;
+  background: #ff2d95;
+}
+
+.glow-2 {
+  bottom: -120px;
+  right: -80px;
+  background: #6f4bff;
+}
+
+.section {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  text-align: center;
+  padding: 110px 0 80px;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  margin-bottom: 22px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Dancing Script", cursive;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  text-shadow: 0 8px 22px rgba(255, 79, 161, 0.35);
+}
+
+.subtitle {
+  width: min(780px, 92%);
+  margin: 0 auto 30px;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.cta {
+  display: inline-block;
+  text-decoration: none;
+  color: #2f123f;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffd166, #ff7fb7);
+  padding: 12px 25px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(255, 179, 88, 0.35);
+}
+
+.cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(255, 179, 88, 0.5);
+}
+
+.message-section,
+.wishes,
+.music,
+.footer {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  backdrop-filter: blur(5px);
+  padding: 28px;
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 14px;
+}
+
+.message-section p {
+  line-height: 1.9;
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 36px;
+}
+
+.card {
+  grid-column: span 4;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.card figcaption {
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.wish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.wish-grid article {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.wish-grid h3 {
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.wish-grid p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.music p {
+  margin-bottom: 16px;
+}
+
+.songs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.songs iframe {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  border-radius: 14px;
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+@media (max-width: 980px) {
+  .card {
+    grid-column: span 6;
+  }
+
+  .songs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 90px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    grid-column: span 1;
+  }
+
+  .wish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .message-section,
+  .wishes,
+  .music,
+  .footer {
+    padding: 20px;
+  }
+}
